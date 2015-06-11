@@ -1,5 +1,4 @@
 //: [Previous](@previous)
-
 import Foundation
 
 let path = NSBundle.mainBundle().pathForResource("input", ofType: "dat")
@@ -33,6 +32,10 @@ We need a pointer so we use the `&` operator. The pointer must be mutable so we 
 */
         var seq: UInt16 = 0
         data.getBytes(&seq, length: 2)
+/*:
+Take note seq which we got from the data is `0x1372`. Converting that to decimal is 4978 but printing it here shows 29203. This is because of the call to `getBytes()` actually gave us `0x7213`, note that the 2 bytes are not in the correct order. We can use the `UInt16.byteSwapped` to return the correct number.
+*/
+        seq
         return Int(seq.byteSwapped)
 /*:
 Finally just return nil if the data was not there
