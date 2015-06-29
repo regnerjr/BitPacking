@@ -32,6 +32,9 @@ func readDataFromFile(inputName: String?) -> NSData? {
 //: Get the path to our Playground/Resources/input.dat
 let path = NSBundle.mainBundle().pathForResource("input", ofType: "dat")
 
-// read the file, data: NSData
+//: Note: You can always Opt-Click on varibles to find out what type they are
+//: try this on the path above and the data below.
+
 let data = readDataFromFile(path)
+
 //:[Next Page](@next)

@@ -27,7 +27,7 @@ So the first 2 bytes we are going to ignore are:  `93 da`
 
 ## Lets write a function to do this.
 
-It should take an NSData and remove the first 2 bytes from it and return us the rest of the data. 
+It should take an `NSData?` and remove the first 2 bytes from it and return us the rest of the data.
     
     func removeTwoBytes(theData: NSData?) -> NSData?
 
@@ -41,7 +41,7 @@ Though it does not quite look like it in the Documentation, you can create an `N
 */
 
 func removeTwoBytes(data: NSData?) -> NSData? {
-    switch data{
+    switch data { //switch since the input data can be nil
     case .Some(let theData):
         let range = NSRange(location: 2, length: theData.length - 2)
         return theData.subdataWithRange(range)
